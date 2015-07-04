@@ -2,3 +2,5 @@
 
 export(column_start)
 export(column_width)
+importFrom(assertthat,is.count)
+importFrom(assertthat,is.number)

@@ -8,3 +8,8 @@ Description: Many companies require that every output is based on a corporate
 Depends: R (>= 3.2.1)
 License: GPL-3
 LazyData: true
+Imports:
+  assertthat
+Suggests:
+  knitr,
+  ggplot2
