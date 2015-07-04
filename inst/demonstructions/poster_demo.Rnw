@@ -1,7 +1,4 @@
 \documentclass[final]{beamer}
-%\VignetteEngine{xelatex}
-%\VignetteIndexEntry{Demonstration of a poster}
-%\VignetteDepends{ggplot2}
 %\SweaveUTF8
 \usetheme{ciposter}
 \usepackage[orientation=portrait, size=a0, scale=1.4]{beamerposter}
