@@ -1,0 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^vignettes/figure$
+^vignettes/.*\.tex$
+^vignettes/.*\.log$
+^vignettes/.*\.toc$
+^vignettes/.*\.gz$
+^vignettes/.*\.snm$
+^vignettes/.*\.vrb$
+^vignettes/.*\.nav$
+^vignettes/.*\.pdf$

@@ -1,0 +1,139 @@
+\documentclass[final]{beamer}
+%\VignetteEngine{xelatex}
+%\VignetteIndexEntry{Demonstration of a poster}
+%\VignetteDepends{ggplot2}
+%\SweaveUTF8
+\usetheme{ciposter}
+\usepackage[orientation=portrait, size=a0, scale=1.4]{beamerposter}
+\usepackage{lipsum}
+\lang{english}
+\title{The title of the poster}
+\subtitle{The optional subtitle of the poster}
+\author{The authors}
+\email{your@email.com}
+
+\begin{document}
+\begin{frame}[fragile]{} 
+
+\begin{textblock}{\Sexpr{corpident::column_width(3)}}(\Sexpr{corpident::column_start(3, 1)}, 0)
+\begin{block}{Plain text}
+\lipsum[1]
+\end{block}
+
+\textbf{Monospace text without block}
+
+\texttt{\lipsum[2]}
+
+\vspace{1ex}
+
+\begin{exampleblock}{Example block}
+If the Sweave file uses UTF-8 encoding, it can handle accents.
+
+äàáâã ëèéê ïìíî öòóô üùúû ÿ ç ñ ÄÀÁÂ ËÈÉÊ ÏÌÍÎ ÖÒÓÔ ÜÙÚÛ Ñ
+  
+opening ``double quotes" closing, opening `single quotes' closing
+
+Uppercase i versus undercase L: Il
+\end{exampleblock}
+
+\end{textblock}
+
+
+\begin{textblock}{\Sexpr{corpident::column_width(3)}}(\Sexpr{corpident::column_start(3, 2)}, 0)
+
+\begin{alertblock}{Equation in alertblock}
+\begin{equation}
+\dfrac{N_x}{N_n} = h < h^* = \dfrac{C_s + C_a}{C_c + C_a} \label{eq:RelCost}
+\end{equation}
+\end{alertblock}
+
+\begin{block}{Bold text in a block}
+
+\textbf{\lipsum[3]}
+\end{block}
+
+\begin{block}{Italics}
+\textit{\lipsum[4]}
+\end{block}
+
+<<demofigure, echo = FALSE, fig.cap= "Demonstration of a figure", message=FALSE, fig.width = 230 / 25.4, fig.height = 150 / 25.4>>=
+library(ggplot2)
+theme_set(theme_gray(25))
+test <- data.frame(Letters = LETTERS[1:9], Y = 1)
+ggplot(test, aes(x = Letters, y = Y, fill = Letters)) + geom_bar(stat = "identity")
+@
+
+\end{textblock}
+
+\begin{textblock}{\Sexpr{corpident::column_width(3)}}(\Sexpr{corpident::column_start(3, 3)}, 0)
+
+\begin{block}{Itemize}
+\begin{itemize}
+  \item First item
+    \begin{itemize}
+      \item First item
+        \begin{itemize}
+          \item First item
+          \item Second item
+        \end{itemize}
+      \item Second item
+    \end{itemize}
+  \item Second item
+\end{itemize}
+\end{block}
+
+\begin{block}{Enumerate}
+\begin{enumerate}
+  \item First item
+    \begin{enumerate}
+      \item First item
+        \begin{enumerate}
+          \item First item
+          \item Second item
+        \end{enumerate}
+      \item Second item
+    \end{enumerate}
+  \item Second item
+\end{enumerate}
+\end{block}
+
+
+
+\begin{block}{Description}
+\begin{description}
+  \item [First item]: blabla
+    \begin{description}
+      \item [First item]: blabla
+        \begin{description}
+          \item [First item]: blabla
+          \item [Second item]: blabla
+        \end{description}
+      \item [Second item]: blabla
+    \end{description}
+  \item [Second item]: blabla
+\end{description}
+\end{block}
+
+
+<<demofigure2, echo = TRUE, fig.cap= "Demonstration of a figure", message=FALSE, fig.width = 230 / 25.4, fig.height = 150 / 25.4>>=
+library(ggplot2)
+theme_set(theme_gray(25))
+test <- data.frame(
+  Letters = LETTERS[1:9], 
+  Y = 1
+)
+ggplot(
+  test, 
+  aes(
+    x = Letters, 
+    y = Y, 
+    fill = Letters
+  )
+) + geom_bar(stat = "identity")
+@
+
+\end{textblock}  
+
+
+\end{frame}
+\end{document}

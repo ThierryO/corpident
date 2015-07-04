@@ -1,0 +1,10 @@
+Package: corpident
+Title: A Demonstruction of Adding a Corporate Identity to Reproducible Research
+Version: 0.0.0
+Authors@R: person("Thierry", "Onkelinx", email = "thierry.onkelinx@inbo.be", role = c("aut", "cre"))
+Description: Many companies require that every output is based on a corporate 
+  identity. This package demonstrates how to create a corporate identity style 
+  for posters in LaTeX.
+Depends: R (>= 3.2.1)
+License: GPL-3
+LazyData: true
