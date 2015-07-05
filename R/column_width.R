@@ -5,7 +5,7 @@
 #' @importFrom assertthat is.count is.number
 column_width <- function(ncol = 3, space = 20){
   if (!is.count(ncol)) {
-    stop("ncol must be a single integer")
+    stop("ncol must be a single positive integer")
   }
   if (!is.number(space)) {
     stop("space must be a single number")
@@ -26,7 +26,7 @@ column_width <- function(ncol = 3, space = 20){
 #' @importFrom assertthat is.count
 column_start <- function(ncol = 3, start = 1, space = 20){
   if (!is.count(start)) {
-    stop("start must be a single integer")
+    stop("start must be a single positive integer")
   }
   width <- column_width(ncol = ncol, space = space)
   if (start > ncol) {
