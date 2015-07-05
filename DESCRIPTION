@@ -11,6 +11,9 @@ LazyData: true
 Imports:
   assertthat
 Suggests:
+  pander,
   testthat,
   knitr,
   ggplot2
+VignetteBuilder: 
+  knitr

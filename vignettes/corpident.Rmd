@@ -1,0 +1,88 @@
+---
+title: "The corpident package"
+author: "Thierry Onkelinx"
+date: "5 juli 2015"
+output: html_document
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{The corpident package}
+  %\VignetteDepends{pander}
+  %\SweaveUTF8
+---
+
+```{r setup, echo = FALSE, results = "hide"}
+library(knitr)
+opts_chunk$set(
+  echo = FALSE, 
+  cache = FALSE, 
+  dpi = 300, 
+  fig.width = 4.5, 
+  fig.height = 2.9, 
+  message = FALSE, 
+  error = TRUE, 
+  warning = FALSE, 
+  tidy = FALSE,
+  results = "asis"
+)
+library(pander)
+```
+
+# Introduction
+
+The purpose of the corpident package is to demonstrate how to create a package with style files. The table indicates the examples which are currently available in this package.
+
+```{r available}
+examples <- data.frame(
+  Type = c("Poster"),
+  Language = c("LaTeX"),
+  Output = c("pdf")
+)
+pandoc.table(examples, caption = "The currently available examples")
+```
+
+# Installation
+
+First install the package in the usual way. The get to current version from GitHub use `devtools::install_github("ThierryO/corpident")`.
+
+All LaTeX based examples require a working LaTeX installation on the machine. They will only run if the Tex Directory Structure (TDS) in the package (`r system.file("local_tex", package = "corpident")`) is added as a LaTeX root.
+
+## MikTeX on Windows
+
+1. Go to the Start menu --> MikTeX --> Maintance --> Settings
+1. Switch to the 'Roots' tab
+1. Add `r system.file("local_tex", package = "corpident")` to the roots and move it up
+1. Switch to the 'General' tab
+1. Click the 'Refresh FNDB' button
+
+# Updating the package
+
+The package can be updated like any regular package. However, an additiontal step is required when new files are added to the TDS. In such case the file name data base of LaTeX needs to be updated as well.
+
+## MikTeX on Windows
+
+1. Go to the Start menu --> MikTeX --> Maintance --> Settings
+1. Go to the 'General' tab
+1. Click the 'Refresh FNDB' button
+
+# Examples
+
+All examples reside in the `demonstructions` directory of the package.
+
+```{r get_examples}
+example.path <- system.file("demonstructions", package = "corpident")
+examples <- data.frame(
+  File = list.files(example.path)
+)
+examples$Type <- gsub("^.*\\.", "", examples$File)
+pandoc.table(examples, "Example files")
+```
+
+## Compiling an Rnw example
+
+```{r compile_rnw, echo = TRUE, eval = FALSE}
+knitr::knit2pdf(
+  input = sytem.file("demonstructions/example.Rnw", package = "corpident"),
+  compiler = "xelatex", 
+  encoding = "UTF-8"
+)
+```

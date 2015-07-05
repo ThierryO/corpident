@@ -1,5 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.git$
 ^inst/demonstructions/figure$
 ^inst/demonstructions/.*\.tex$
 ^inst/demonstructions/.*\.vrb$
