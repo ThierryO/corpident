@@ -5,13 +5,12 @@ subtitle: Frequently Asked Questions on R for Windows
 output:
   corpident::ci_report_pdf:
     cover: "frog.jpg"
+    cover_text: "Frog Macro Portrait by Karen Arnold. CC0. (\\url{http://www.publicdomainpictures.net/browse-author.php?a=32495})"
     cover_offset: "135mm"
     keep_tex: FALSE
 ---
 
 ```{r echo=FALSE}
-# cover_text: "Frog Macro Portrait by Karen Arnold. CC0"
-# (http://www.publicdomainpictures.net/browse-author.php?a=32495
 last.edit <- "2015-01-27"
 x.y <- paste0(R.version$major, ".", R.version$minor)
 rw.ver <- paste0("R-", x.y)
