@@ -9,6 +9,7 @@ Depends: R (>= 3.2.1)
 License: GPL-3
 LazyData: true
 Imports:
+  rmarkdown,
   assertthat
 Suggests:
   pander,

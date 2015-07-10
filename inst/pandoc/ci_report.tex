@@ -1,0 +1,56 @@
+\documentclass[9pt, twoside]{extreport}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+$if(lang)$
+\RequirePackage[$lang$]{babel}
+$endif$
+\usepackage{cireport}
+\usepackage{upquote}
+\usepackage{booktabs}
+
+\newcommand{\autorefp}[1]{ (\autoref{#1})}
+\newcommand{\refp}[1]{ (\ref{#1})}
+\newcommand{\alert}[1]{\textcolor{red}{#1}}
+
+\title{$title$}
+
+$if(subtitle)$
+  \subtitle{$subtitle$}
+$endif$
+
+\author{$author$}
+
+\hypersetup{
+  pdftitle = {$title$ $if(subtitle)$$subtitle$$endif$},
+  pdfauthor = {$author$}
+}
+
+%INBO rapportnummer. Aan te vragen via bib-helpdesk 
+%Default: the date on which the document is compiled
+$if(reportnumber)$
+\reportnumber{$reportnumber$}
+$endif$
+
+%the image on the cover. Will be scale to the width of the cover.
+\cover{$cover$}
+%the offset allows to shift the coverimage up and down.
+$if(coveroffset)$
+  \coveroffset{$coveroffset$}
+$endif$
+
+\begin{document}
+\maketitle
+\pagenumbering{Roman}
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Table of content}
+
+\newpage
+\pagenumbering{arabic}
+
+$body$
+
+\end{document}
