@@ -14,4 +14,7 @@ column_width(ncol = 3, space = 20)
 \description{
 Calculate the width of an A0 column
 }
+\examples{
+column_width(ncol = 3, space = 20)
+}
 

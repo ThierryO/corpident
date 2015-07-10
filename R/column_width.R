@@ -3,6 +3,8 @@
 #' @param space the space in between two columns in mm
 #' @export
 #' @importFrom assertthat is.count is.number
+#' @examples 
+#' column_width(ncol = 3, space = 20)
 column_width <- function(ncol = 3, space = 20){
   if (!is.count(ncol)) {
     stop("ncol must be a single positive integer")
@@ -24,6 +26,8 @@ column_width <- function(ncol = 3, space = 20){
 #' @inheritParams column_width
 #' @export
 #' @importFrom assertthat is.count
+#' @examples 
+#' column_start(ncol = 3, start = 2, space = 20)
 column_start <- function(ncol = 3, start = 1, space = 20){
   if (!is.count(start)) {
     stop("start must be a single positive integer")

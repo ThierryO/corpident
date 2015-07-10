@@ -16,4 +16,7 @@ column_start(ncol = 3, start = 1, space = 20)
 \description{
 Calculate the starting position of a column
 }
+\examples{
+column_start(ncol = 3, start = 2, space = 20)
+}
 
