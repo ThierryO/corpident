@@ -21,3 +21,13 @@ expect_identical(
   ),
   paste0(temp_dir, "/rw-FAQ-report.pdf")
 )
+
+expect_identical(
+  rmarkdown::render(
+    input = system.file("demonstrations/rw-FAQ.Rmd", package = "corpident"), 
+    output_format = "ci_report_html", 
+    output_file = paste0(temp_dir, "/rw-FAQ-report.html"),
+    encoding = "UTF-8"
+  ),
+  paste0(temp_dir, "/rw-FAQ-report.html")
+)
