@@ -66,10 +66,10 @@ The package can be updated like any regular package. However, an additiontal ste
 
 # Examples
 
-All examples reside in the `demonstructions` directory of the package.
+All examples reside in the `demonstrations` directory of the package.
 
 ```{r get_examples}
-example.path <- system.file("demonstructions", package = "corpident")
+example.path <- system.file("demonstrations", package = "corpident")
 examples <- data.frame(
   File = list.files(example.path)
 )
@@ -81,7 +81,7 @@ pandoc.table(examples, "Example files")
 
 ```{r compile_rnw, echo = TRUE, eval = FALSE}
 knitr::knit2pdf(
-  input = sytem.file("demonstructions/example.Rnw", package = "corpident"),
+  input = sytem.file("demonstrations/example.Rnw", package = "corpident"),
   compiler = "xelatex", 
   encoding = "UTF-8"
 )
