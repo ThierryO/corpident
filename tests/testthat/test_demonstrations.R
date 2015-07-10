@@ -9,3 +9,15 @@ expect_identical(
 )
 file.remove(list.files(pattern = "^poster_demo", recursive = TRUE, full.names = TRUE))
 unlink("figure", recursive = TRUE, force = TRUE)
+
+temp_dir <- normalizePath(tempdir(), winslash = "/")
+context("rw-FAQ.Rmd")
+expect_identical(
+  rmarkdown::render(
+    input = system.file("demonstrations/rw-FAQ.Rmd", package = "corpident"), 
+    output_format = "ci_report_pdf", 
+    output_file = paste0(temp_dir, "/rw-FAQ-report.pdf"),
+    encoding = "UTF-8"
+  ),
+  paste0(temp_dir, "/rw-FAQ-report.pdf")
+)
