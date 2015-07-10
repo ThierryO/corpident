@@ -333,6 +333,26 @@
       \color{black}
     \end{textblock}
   }%
+  \clearpage
+  \thispagestyle{empty}\vbox to \vsize{%
+    \vfill
+    \small{
+    \noindent\textbf{Authors:}\\
+    \@author
+    }%
+    \vspace{7mm}
+    
+    \ifthenelse{\equal{\@cover}{}}
+      {}
+      {
+        \ifthenelse{\equal{\@covertext}{}}
+          {}
+          {
+            \vspace{7mm}
+            \noindent \textbf{Cover image:}\\ \@covertext
+          }%
+      }%
+  }%
 }
 
 

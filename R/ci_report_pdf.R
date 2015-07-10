@@ -5,6 +5,7 @@ ci_report_pdf <- function(
   subtitle, 
   cover, 
   cover_offset, 
+  cover_text,
   reportnumber, 
   lang,
   keep_tex = FALSE
@@ -23,6 +24,9 @@ ci_report_pdf <- function(
     args <- c(args, pandoc_variable_arg("cover", cover))
     if (!missing(cover_offset)) {
       args <- c(args, pandoc_variable_arg("coveroffset", cover_offset))
+    }
+    if (!missing(cover_text)) {
+      args <- c(args, pandoc_variable_arg("covertext", cover_text))
     }
   }
   if (!missing(reportnumber)) {

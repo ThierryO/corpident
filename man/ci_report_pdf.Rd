@@ -4,7 +4,7 @@
 \alias{ci_report_pdf}
 \title{A function to convert an Rmarkdown document to a pdf report}
 \usage{
-ci_report_pdf(subtitle, cover, cover_offset, reportnumber, lang,
+ci_report_pdf(subtitle, cover, cover_offset, cover_text, reportnumber, lang,
   keep_tex = FALSE)
 }
 \description{

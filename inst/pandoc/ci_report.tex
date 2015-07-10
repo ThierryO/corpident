@@ -40,13 +40,16 @@ $endif$
 $if(coveroffset)$
   \coveroffset{$coveroffset$}
 $endif$
+$if(covertext)$
+  \covertext{$covertext$}
+$endif$
 
 \begin{document}
 \maketitle
 \pagenumbering{Roman}
 
 \tableofcontents
-\addcontentsline{toc}{chapter}{Table of content}
+\addcontentsline{toc}{chapter}{Contents}
 
 \newpage
 \pagenumbering{arabic}
