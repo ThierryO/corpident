@@ -1,7 +1,7 @@
 ---
 title: "The corpident package"
 author: "Thierry Onkelinx"
-date: "5 juli 2015"
+date: "10 juli 2015"
 output: html_document
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
@@ -33,9 +33,9 @@ The purpose of the corpident package is to demonstrate how to create a package w
 
 ```{r available}
 examples <- data.frame(
-  Type = c("Poster"),
-  Language = c("LaTeX"),
-  Output = c("pdf")
+  Type = c("Poster", "Report", "Report"),
+  Language = c("LaTeX", "Markdown", "Markdown"),
+  Output = c("pdf", "pdf", "html")
 )
 pandoc.table(examples, caption = "The currently available examples")
 ```
@@ -71,7 +71,7 @@ All examples reside in the `demonstrations` directory of the package.
 ```{r get_examples}
 example.path <- system.file("demonstrations", package = "corpident")
 examples <- data.frame(
-  File = list.files(example.path)
+  File = list.files(example.path, pattern = "(Rnw|Rmd)$")
 )
 examples$Type <- gsub("^.*\\.", "", examples$File)
 pandoc.table(examples, "Example files")
@@ -81,8 +81,34 @@ pandoc.table(examples, "Example files")
 
 ```{r compile_rnw, echo = TRUE, eval = FALSE}
 knitr::knit2pdf(
-  input = sytem.file("demonstrations/example.Rnw", package = "corpident"),
+  input = sytem.file("demonstrations/poster_demo.Rnw", package = "corpident"),
   compiler = "xelatex", 
+  encoding = "UTF-8"
+)
+```
+
+## Compiling an Rmd example
+
+### All defined output formats in the Rmd file
+```{r compile_rmd_all, echo = TRUE, eval = FALSE}
+rmarkdown::render(
+  input = system.file("demonstrations/rw-FAQ.Rmd", package = "corpident"), 
+  output_format = "all", 
+  encoding = "UTF-8"
+)
+```
+
+### A single output format
+
+```{r compile_rmd_single, echo = TRUE, eval = FALSE}
+rmarkdown::render(
+  input = system.file("demonstrations/rw-FAQ.Rmd", package = "corpident"), 
+  output_format = "ci_report_pdf", 
+  encoding = "UTF-8"
+)
+rmarkdown::render(
+  input = system.file("demonstrations/rw-FAQ.Rmd", package = "corpident"), 
+  output_format = "ci_report_html", 
   encoding = "UTF-8"
 )
 ```
