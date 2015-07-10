@@ -1,6 +1,6 @@
 Package: corpident
 Title: A Demonstruction of Adding a Corporate Identity to Reproducible Research
-Version: 0.0.0
+Version: 0.1
 Authors@R: person("Thierry", "Onkelinx", email = "thierry.onkelinx@inbo.be", role = c("aut", "cre"))
 Description: Many companies require that every output is based on a corporate 
   identity. This package demonstrates how to create a corporate identity style 
