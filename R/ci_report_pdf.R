@@ -1,6 +1,13 @@
 #' A function to convert an Rmarkdown document to a pdf report
 #' @export
 #' @importFrom  rmarkdown pandoc_variable_arg output_format knitr_options pandoc_options
+#' @param subtitle the optional subtitle of the report
+#' @param cover the optional cover image of the report
+#' @param cover_offset A LaTeX length unit to shift the cover image up
+#' @param cover_text An optional description of the cover image. Only displayed when a cover image is added
+#' @param reportnumber The number of the report. The current date will be used when missing.
+#' @param lang The language to use for the babel package
+#' @param keep_tex keep all intermediate files when TRUE. Useful for debugging. Defaults to FALSE
 ci_report_pdf <- function(
   subtitle, 
   cover, 

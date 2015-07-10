@@ -7,6 +7,21 @@
 ci_report_pdf(subtitle, cover, cover_offset, cover_text, reportnumber, lang,
   keep_tex = FALSE)
 }
+\arguments{
+\item{subtitle}{the optional subtitle of the report}
+
+\item{cover}{the optional cover image of the report}
+
+\item{cover_offset}{A LaTeX length unit to shift the cover image up}
+
+\item{cover_text}{An optional description of the cover image. Only displayed when a cover image is added}
+
+\item{reportnumber}{The number of the report. The current date will be used when missing.}
+
+\item{lang}{The language to use for the babel package}
+
+\item{keep_tex}{keep all intermediate files when TRUE. Useful for debugging. Defaults to FALSE}
+}
 \description{
 A function to convert an Rmarkdown document to a pdf report
 }
