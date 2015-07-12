@@ -33,9 +33,9 @@ The purpose of the corpident package is to demonstrate how to create a package w
 
 ```{r available}
 examples <- data.frame(
-  Type = c("Poster", "Report", "Report"),
-  Language = c("LaTeX", "Markdown", "Markdown"),
-  Output = c("pdf", "pdf", "html")
+  Type = c("Poster", "Report", "Report", "Slides", "Slide handouts"),
+  Language = c("LaTeX", "Markdown", "Markdown", "Markdown", "Markdown"),
+  Output = c("pdf", "pdf", "html", "pdf", "pdf")
 )
 pandoc.table(examples, caption = "The currently available examples")
 ```
@@ -121,6 +121,11 @@ rmarkdown::render(
 rmarkdown::render(
   input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
   output_format = "ci_slides_pdf", 
+  encoding = "UTF-8"
+)
+rmarkdown::render(
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
+  output_format = "ci_handouts_pdf", 
   encoding = "UTF-8"
 )
 rmarkdown::render(

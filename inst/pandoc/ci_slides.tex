@@ -1,6 +1,12 @@
 % the presentation
 \documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$, $if(handout)$handout,$endif$ xetex]{beamer}
 
+
+$if(handout)$
+  \usepackage{pgfpages}
+  \pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm]
+$endif$
+
 $if(highlighting-macros)$
 $highlighting-macros$
 $endif$

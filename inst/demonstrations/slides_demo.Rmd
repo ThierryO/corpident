@@ -10,6 +10,12 @@ output:
     institute: "Affiliation of the author"
     slide_level: 3
 
+  corpident::ci_handouts_pdf:
+    location: "Location and date"
+    institute: "Affiliation of the author"
+    slide_level: 3
+    keep_tex: FALSE
+    
   corpident::ci_report_pdf:
     cover: "Frog"
     cover_text: "Frog Macro Portrait by Karen Arnold. CC0. (\\url{http://www.publicdomainpictures.net/browse-author.php?a=32495})"

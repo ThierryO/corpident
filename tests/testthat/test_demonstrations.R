@@ -54,6 +54,15 @@ expect_match(
 expect_match(
   rmarkdown::render(
     input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
+    output_format = "ci_handouts_pdf", 
+    output_file = "slides_demo_handout.pdf",
+    encoding = "UTF-8"
+  ),
+  regexp = "slides_demo_handout\\.pdf$"
+)
+expect_match(
+  rmarkdown::render(
+    input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
     output_format = "ci_report_html", 
     output_file = "slides_demo.html",
     encoding = "UTF-8"
