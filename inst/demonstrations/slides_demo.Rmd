@@ -1,0 +1,257 @@
+---
+title: "Demonstration of slide lay out"
+author: "The Authors"
+subtitle: "The optional subtitle"
+usepackage: "lipsum"
+
+output: 
+  corpident::ci_slides_pdf:
+    location: "Location and date"
+    institute: "Affiliation of the author"
+    slide_level: 3
+
+  corpident::ci_report_pdf:
+    cover: "Frog"
+    cover_text: "Frog Macro Portrait by Karen Arnold. CC0. (\\url{http://www.publicdomainpictures.net/browse-author.php?a=32495})"
+    cover_offset: "135mm"
+---
+
+```{r setup, echo=FALSE, results='hide'}
+library(pander)
+```
+
+
+# Text a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u
+
+## Fonts
+
+### Plain font
+
+\lipsum[1] 
+
+### Monospace font
+  
+\texttt{\lipsum[2-3]}
+
+### Bold font
+  
+**\lipsum[4-6]**
+
+### Italics font
+
+_\lipsum[7-9]}_
+
+### Accents and stuff
+  
+äàáâã ëèéê ïìíî öòóô üùúû ÿ ç ñ 
+  
+ÄÀÁÂ ËÈÉÊ ÏÌÍÎ ÖÒÓÔ ÜÙÚÛ Ñ
+  
+"double quotes"
+
+'single quotes'
+
+uppercase i versus lowercase L: Il
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Lists a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y
+
+### Itemize with 3 levels with some extra nonsens in a very long title so that the title will be longer than a single line.
+
+- first item
+- second item
+    - first item
+        - first item
+        - second item
+        - third item
+        - forth item
+    - second item
+    - third item
+    - forth item
+- third item
+- forth item
+
+### Enumerate
+
+1. first item
+1. second item
+    9. first item
+    1. second item
+    1. third item
+        1. first item
+        1. second item
+        1. third item
+        1. forth item
+    1. forth item
+1. third item
+1. forth item
+
+### Description
+
+First
+  ~ Description of the first item
+  
+    Version A
+      ~ Details of A
+      
+    Version B
+      ~ Details of B
+Second
+  ~ Description of the second item
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Different kinds of blocks
+
+### Block
+
+#### The title of the block
+
+\lipsum[10-12]
+
+### Exampleblock
+  
+\begin{exampleblock}{The title of an example block}
+  \lipsum[13-14]
+\end{exampleblock}
+
+### Alertblock
+
+\begin{alertblock}{The title of an alert block}
+\lipsum[15-16]
+\end{alertblock}
+
+## Other stuff
+
+### Equations
+
+Inline $f(x | \mu, \sigma) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x - \mu)^2}{2 \sigma^2}}$
+
+
+$$f(x | \mu, \sigma) = \frac{1}{\sigma\sqrt{2\pi}}\, e^{-\frac{(x - \mu)^2}{2 \sigma^2}}$$
+
+
+
+
+
+
+
+
+
+
+
+
+# R Code
+
+## Examples
+
+### Code
+
+```{r prepare_graphics}
+library(knitr)
+opts_chunk$set(
+  inline = TRUE,
+  strip.white = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+library(ggplot2)
+theme_set(theme_gray(6))
+```
+
+### Datasets
+
+```{r datasets}
+example <- data.frame(
+  Day = c("Monday", "Tuesday", "Wednesday"),
+  'Min Temp' = c("11C", "9C", "10C"),
+  'Max Temp' = c("22C", "19C", "21C"),
+  Summary = c(
+    "A clear day with lots of sunshine. However, the 
+    strong breeze will bring down the temperatures.", 
+    "Cloudy with rain, across many northern regions. 
+    Clear spells across most of Scotland and Northern 
+    Ireland, but rain reaching the far northwest.", 
+    "Rain will still linger for the morning. Conditions 
+    will improve by early afternoon and continue 
+    throughout the evening."
+  )
+)
+str(example)
+```
+
+# Tables and figures
+
+## Tables
+
+### Multiline table
+
+```{r multiline_table, results='asis'}
+pandoc.table(example)
+```
+
+### Grid table
+
+```{r grid_table, results='asis'}
+pandoc.table(example, style = "grid")
+```
+
+## Figures
+
+### Figures {.allowframebreaks}
+
+```{r figstandard, out.extra = ''}
+ggplot(movies, aes(x = rating)) + 
+  geom_histogram() + 
+  facet_wrap(~ mpaa, scales = "free")
+ggplot(diamonds, aes(x = price, fill = cut)) + 
+  geom_histogram()
+ggplot(
+  mtcars, 
+  aes(
+    x = wt, 
+    y = mpg, 
+    colour = factor(cyl), 
+    fill = factor(cyl)
+  )
+) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
