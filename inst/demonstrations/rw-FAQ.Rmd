@@ -1536,3 +1536,5 @@ If you want output to be updated on the console, call
 `R_FlushConsole()` and then `R_ProcessEvents()`.
 
 Last edited `r last.edit`: comments to R-windows@R-project.org
+
+Converted from texi format into RMarkdown format by Thierry Onkelinx.
