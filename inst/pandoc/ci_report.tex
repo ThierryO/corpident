@@ -10,6 +10,9 @@ $endif$
 \usepackage{cireport}
 \usepackage{upquote}
 \usepackage{booktabs}
+$for(usepackage)$
+\usepackage{$usepackage$}
+$endfor$
 
 \newcommand{\autorefp}[1]{ (\autoref{#1})}
 \newcommand{\refp}[1]{ (\ref{#1})}

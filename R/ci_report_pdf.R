@@ -8,6 +8,7 @@
 #' @param reportnumber The number of the report. The current date will be used when missing.
 #' @param lang The language to use for the babel package
 #' @param keep_tex keep all intermediate files when TRUE. Useful for debugging. Defaults to FALSE
+#' @param ... extra parameters
 ci_report_pdf <- function(
   subtitle, 
   cover, 
@@ -15,8 +16,10 @@ ci_report_pdf <- function(
   cover_text,
   reportnumber, 
   lang,
-  keep_tex = FALSE
+  keep_tex = FALSE,
+  ...
 ){
+  extra <- list(...)
   template <- system.file("pandoc/ci_report.tex", package = "corpident")
   csl <- system.file("jss.cls", package = "corpident")
   args <- c(
@@ -26,6 +29,14 @@ ci_report_pdf <- function(
   )
   if (!missing(lang)) {
     args <- c(args, pandoc_variable_arg("lang", lang))
+  }
+  if ("usepackage" %in% names(extra)) {
+    tmp <- sapply(
+      extra$usepackage,
+      pandoc_variable_arg,
+      name = "usepackage"
+    )
+    args <- c(args, tmp)
   }
   if (!missing(cover)) {
     args <- c(args, pandoc_variable_arg("cover", cover))
