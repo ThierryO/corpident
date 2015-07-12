@@ -1,6 +1,7 @@
 Package: corpident
 Title: A Demonstruction of Adding a Corporate Identity to Reproducible Research
 Version: 0.1
+Date: 2015-07-12
 Authors@R: c(
   person("Thierry", "Onkelinx", email = "thierry.onkelinx@inbo.be", role = c("aut", "cre")),
   person("Karen", "Arnold", role = "ctb", comment = "Picture of frog"),
