@@ -18,7 +18,7 @@ ci_report_pdf <- function(
   keep_tex = FALSE
 ){
   template <- system.file("pandoc/ci_report.tex", package = "corpident")
-  csl <- system.file("jss.csl", package = "corpident")
+  csl <- system.file("jss.cls", package = "corpident")
   args <- c(
     "--template", template,
     pandoc_variable_arg("documentclass", "report"),
