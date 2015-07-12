@@ -1,12 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.git$
-^inst/demonstructions/figure$
-^inst/demonstructions/.*\.tex$
-^inst/demonstructions/.*\.vrb$
-^inst/demonstructions/.*\.nav$
-^inst/demonstructions/.*\.toc$
-^inst/demonstructions/.*\.snm$
-^inst/demonstructions/.*\.pdf$
-^inst/demonstructions/.*\.log$
-^inst/demonstructions/.*\.gz$
+^inst/demonstrations/.*\.pdf$
+^inst/demonstrations/.*\.html$
+^vignettes/.*\.R$
+^vignettes/.*\.html$
