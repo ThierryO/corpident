@@ -97,7 +97,7 @@ rmarkdown::render(
   encoding = "UTF-8"
 )
 rmarkdown::render(
-  input = system.file("demonstrations/slides_demo", package = "corpident"), 
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
   output_format = "all", 
   encoding = "UTF-8"
 )
@@ -119,12 +119,12 @@ rmarkdown::render(
   encoding = "UTF-8"
 )
 rmarkdown::render(
-  input = system.file("demonstrations/slides_demo", package = "corpident"), 
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
   output_format = "ci_slides_pdf", 
   encoding = "UTF-8"
 )
 rmarkdown::render(
-  input = system.file("demonstrations/slides_demo", package = "corpident"), 
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
   output_format = "ci_report_pdf", 
   encoding = "UTF-8"
 )
@@ -134,7 +134,12 @@ Output format not defined in the file
 
 ```{r compile_rmd_single_undefined, echo = TRUE, eval = FALSE}
 rmarkdown::render(
-  input = system.file("demonstrations/slides_demo", package = "corpident"), 
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
+  output_format = "rmarkdown::word_document",
+  encoding = "UTF-8"
+)
+rmarkdown::render(
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
   output_format = "ci_report_html", 
   encoding = "UTF-8"
 )
