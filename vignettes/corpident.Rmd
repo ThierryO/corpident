@@ -33,9 +33,9 @@ The purpose of the corpident package is to demonstrate how to create a package w
 
 ```{r available}
 examples <- data.frame(
-  Type = c("Poster", "Report", "Report"),
-  Language = c("LaTeX", "Markdown", "Markdown"),
-  Output = c("pdf", "pdf", "html")
+  Type = c("Poster", "Report", "Report", "Slides", "Slide handouts"),
+  Language = c("LaTeX", "Markdown", "Markdown", "Markdown", "Markdown"),
+  Output = c("pdf", "pdf", "html", "pdf", "pdf")
 )
 pandoc.table(examples, caption = "The currently available examples")
 ```
@@ -96,9 +96,16 @@ rmarkdown::render(
   output_format = "all", 
   encoding = "UTF-8"
 )
+rmarkdown::render(
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
+  output_format = "all", 
+  encoding = "UTF-8"
+)
 ```
 
 ### A single output format
+
+As defined in the file
 
 ```{r compile_rmd_single, echo = TRUE, eval = FALSE}
 rmarkdown::render(
@@ -108,6 +115,36 @@ rmarkdown::render(
 )
 rmarkdown::render(
   input = system.file("demonstrations/rw-FAQ.Rmd", package = "corpident"), 
+  output_format = "ci_report_html", 
+  encoding = "UTF-8"
+)
+rmarkdown::render(
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
+  output_format = "ci_slides_pdf", 
+  encoding = "UTF-8"
+)
+rmarkdown::render(
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
+  output_format = "ci_handouts_pdf", 
+  encoding = "UTF-8"
+)
+rmarkdown::render(
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
+  output_format = "ci_report_pdf", 
+  encoding = "UTF-8"
+)
+```
+
+Output format not defined in the file
+
+```{r compile_rmd_single_undefined, echo = TRUE, eval = FALSE}
+rmarkdown::render(
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
+  output_format = "rmarkdown::word_document",
+  encoding = "UTF-8"
+)
+rmarkdown::render(
+  input = system.file("demonstrations/slides_demo.Rmd", package = "corpident"), 
   output_format = "ci_report_html", 
   encoding = "UTF-8"
 )

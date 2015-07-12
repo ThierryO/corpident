@@ -5,7 +5,7 @@
 \title{A function to convert an Rmarkdown document to a pdf report}
 \usage{
 ci_report_pdf(subtitle, cover, cover_offset, cover_text, reportnumber, lang,
-  keep_tex = FALSE)
+  keep_tex = FALSE, ...)
 }
 \arguments{
 \item{subtitle}{the optional subtitle of the report}
@@ -21,6 +21,8 @@ ci_report_pdf(subtitle, cover, cover_offset, cover_text, reportnumber, lang,
 \item{lang}{The language to use for the babel package}
 
 \item{keep_tex}{keep all intermediate files when TRUE. Useful for debugging. Defaults to FALSE}
+
+\item{...}{extra parameters}
 }
 \description{
 A function to convert an Rmarkdown document to a pdf report

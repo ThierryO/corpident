@@ -1,0 +1,456 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemecislides}
+
+\newcommand{\autorefp}[1]{ (\autoref{#1})}
+\newcommand{\refp}[1]{ (\ref{#1})}
+
+\newcommand{\titlefontsize}{\fontsize{28pt}{33.6pt}\selectfont}
+\newcommand{\subtitlefontsize}{\fontsize{21pt}{25.2pt}\selectfont}
+\newcommand{\sectionfontsize}{\fontsize{28pt}{33.6pt}\selectfont}
+\newcommand{\subsectionfontsize}{\fontsize{20pt}{24pt}\selectfont}
+\newcommand{\authorfontsize}{\fontsize{10pt}{12pt}\selectfont}
+\newcommand{\datefontsize}{\fontsize{8pt}{9.6pt}\selectfont}
+\newcommand{\institutefontsize}{\fontsize{8pt}{9.6pt}\selectfont}
+\newcommand{\urlfontsize}{\fontsize{7pt}{8pt}\selectfont}
+
+\def\lang#1{\def\@lang{#1}}
+\lang{english}
+
+\def\cover#1{\def\@cover{#1}}
+\cover{summerfruit.jpg}
+
+\def\coveroffset#1{\def\@coveroffset{#1}}
+\coveroffset{0mm}
+
+
+\institute{}
+
+\RequirePackage[gen]{eurosym}
+
+\RequirePackage{etoolbox}
+
+\newcommand{\mylogo}[2]{%
+  \includegraphics[height = #1, width = #2, keepaspectratio]{Rlogo.png}
+}
+
+\RequirePackage[absolute, overlay]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{\TPHorizModule}
+\textblockorigin{0mm}{0mm}
+
+\RequirePackage[\@lang]{babel}
+\RequirePackage{graphicx}
+\RequirePackage{pgf}
+\RequirePackage{amsmath}
+\RequirePackage[round, colon, authoryear, sort&compress]{natbib}
+
+\RequirePackage{ifxetex}
+
+\ifxetex
+  \RequirePackage[no-math]{fontspec}
+  \setmainfont[Ligatures=TeX]{Calibri}
+  \setmonofont{Courier New}
+\else
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage[utf8]{inputenc}
+  \RequirePackage{lmodern}
+\fi
+\usefonttheme{serif}
+
+\frenchspacing
+
+
+\definecolor{R.blue}{RGB}{133, 151, 190}
+\definecolor{R.gray}{RGB}{131, 135, 129}
+\definecolor{background}{RGB}{242, 242, 242}
+
+\mode<presentation>
+
+\usetheme{Pittsburgh}
+\usecolortheme[named=R.blue]{structure}
+
+\setbeamercolor{title}{fg=white}
+\setbeamerfont{title}{size = \titlefontsize, series = \bfseries}
+
+\setbeamercolor{subtitle}{fg=white}
+\setbeamerfont{subtitle}{size = \subtitlefontsize, series = \bfseries}
+
+\setbeamercolor{author}{fg=white}
+\setbeamerfont{author}{size = \authorfontsize}
+
+\setbeamercolor{date}{fg=white}
+\setbeamerfont{date}{size = \datefontsize}
+
+\setbeamercolor{institute}{fg=white}
+\setbeamerfont{institute}{size = \institutefontsize}
+
+\setbeamerfont{frametitle}{series = \bfseries, size = \large}
+\setbeamercolor{frametitle}{bg=,fg=black}
+
+\setbeamerfont{section title}{size = \sectionfontsize, series = \bfseries}
+\setbeamercolor{section title}{fg = white, bg = R.blue}
+
+\setbeamerfont{subsection title}{size = \subsectionfontsize, series = \bfseries}
+\setbeamercolor{subsection title}{fg = white, bg = R.blue}
+
+\setbeamerfont{sidebar}{size = \urlfontsize, series = \bfseries}
+\setbeamercolor{sidebar}{fg = white, bg = R.blue}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor{title in head/foot}{fg=black}
+
+\setbeamercolor{normal text}{fg=black}
+
+
+\setbeamercolor{itemize item}{fg=R.blue}
+\setbeamertemplate{itemize items}[triangle]
+
+\setbeamercolor{block title}{fg=white, bg=R.gray}
+\setbeamercolor{block body}{bg = R.gray!50}
+\setbeamerfont{block title}{series = \bfseries}
+\setbeamercolor{block title alerted}{fg=white, bg=red}
+\setbeamercolor{block body alerted}{bg = red!50}
+\setbeamerfont{block title alerted}{series = \bfseries}
+\setbeamercolor{block title example}{fg=white, bg=green}
+\setbeamercolor{block body example}{bg = green!50}
+\setbeamerfont{block title example}{series = \bfseries}
+
+\setbeamersize{text margin left=9.5mm}
+\setbeamersize{text margin right=6mm}
+
+
+
+
+\setbeamertemplate{block begin}{
+  \vskip2mm
+  \begin{beamercolorbox}[leftskip = 10mm, colsep = 1mm]{block title}%
+    \usebeamerfont*{block title}\insertblocktitle
+  \end{beamercolorbox}%
+  \vskip-0.5mm
+  \pgfsetfillopacity{0.5}
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[vmode, colsep = 1mm]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+  \pgfsetfillopacity{1}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+\setbeamertemplate{block example begin}{
+  \vskip2mm
+  \begin{beamercolorbox}[leftskip = 10mm, colsep = 1mm]{block title example}%
+    \usebeamerfont*{block title example}\insertblocktitle
+  \end{beamercolorbox}%
+  \vskip-0.5mm
+  \pgfsetfillopacity{0.5}
+  \usebeamerfont{block body example}%
+  \begin{beamercolorbox}[vmode, colsep = 1mm]{block body example}%
+    \ifbeamercolorempty[bg]{block body example}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block example end}{
+  \end{beamercolorbox}
+  \pgfsetfillopacity{1}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\setbeamertemplate{block alerted begin}{
+  \vskip2mm
+  \begin{beamercolorbox}[leftskip = 10mm, colsep = 1mm]{block title alerted}%
+    \usebeamerfont*{block title alerted}\insertblocktitle
+  \end{beamercolorbox}%
+  \vskip-0.5mm
+  \pgfsetfillopacity{0.5}
+  \usebeamerfont{block body alerted}%
+  \begin{beamercolorbox}[vmode, colsep = 1mm]{block body alerted}%
+    \ifbeamercolorempty[bg]{block body alerted}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+  }
+  \setbeamertemplate{block alerted end}{
+  \end{beamercolorbox}
+  \pgfsetfillopacity{1}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\setbeamertemplate{sidebar left}{
+  \vspace{87mm}
+  \hspace{104mm}
+  \mylogo{9.9mm}{10mm}
+
+  \begin{textblock}{3.5}(0, 0)
+    \begin{pgfpicture}{0cm}{0cm}{3.5mm}{96mm}
+      \usebeamercolor[bg]{sidebar}
+      \pgfrect[fill]{\pgfpoint{0mm}{0mm}}{\pgfpoint{3.5mm}{96mm}}
+    \end{pgfpicture}
+  \end{textblock}
+
+  \begin{textblock}{2}(1, 70)
+    \textblockcolour{R.blue}
+    {\usebeamerfont{sidebar}\usebeamercolor[fg]{sidebar}\rotatebox{90}{www.organisation.org}}
+  \end{textblock}
+
+  \begin{textblock}{3.5}(3.5, 0)
+    \begin{pgfpicture}{0cm}{0cm}{3.5mm}{96mm}
+      \usebeamercolor[fg]{sidebar}
+      \pgfrect[fill]{\pgfpoint{0mm}{0mm}}{\pgfpoint{3.5mm}{96mm}}
+    \end{pgfpicture}
+  \end{textblock}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\setbeamertemplate{title page}{
+  \begin{textblock}{124.5}(3.5, 0)
+    \pgfdeclareimage[width = 124.5mm, interpolate = true]{afbeelding}{\@cover}
+    \begin{pgftranslate}{\pgfpoint{0mm}{\@coveroffset}}
+      \pgfuseimage{afbeelding}
+    \end{pgftranslate}
+  \end{textblock}
+  
+  \begin{textblock}{3.5}(0, 0)
+    \begin{pgfpicture}{0cm}{0cm}{3.5mm}{96mm}
+      \color{R.blue}
+      \pgfrect[fill]{\pgfpoint{0mm}{0mm}}{\pgfpoint{3.5mm}{96mm}}
+    \end{pgfpicture}
+  \end{textblock}
+
+  \begin{textblock}{84}(18.1, 6)
+    \begin{minipage}[b][50mm][b]{78mm}
+      \noindent
+      \raggedright 
+      {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}\\
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}
+    \end{minipage}
+  \end{textblock}
+
+  \begin{textblock}{104}(18.1, 58.1)
+     {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}~\\ 
+     \vspace{5mm}  
+     \raggedright {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
+
+     {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}
+  \end{textblock}
+
+  \begin{textblock}{29.2}(96.5, 4.4)
+    \begin{center}
+      \mylogo{11.3mm}{29.1mm}
+    \end{center}
+  \end{textblock}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\setbeamertemplate{section page}{
+  \begin{textblock}{119}(3.5, 6.5)
+    \begin{pgfpicture}{0cm}{0cm}{119mm}{86mm}
+      \color{R.blue}
+      \pgfrect[fill]{\pgfpoint{0mm}{0mm}}{\pgfpoint{119mm}{89mm}}
+    \end{pgfpicture}
+  \end{textblock}
+
+  \begin{textblock}{29.2}(7.5, 8.45)
+    \mylogo{11.3mm}{29.1mm}
+  \end{textblock}
+
+  \begin{textblock}{66}(36, 32)
+    \begin{minipage}[b][29mm][b]{66mm}
+      \noindent
+      \raggedright{\usebeamerfont{section title}\usebeamercolor[fg]{section title}\insertsection}
+    \end{minipage}
+  \end{textblock}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\setbeamertemplate{subsection page}{
+  \begin{textblock}{119}(3.5, 6.5)
+    \begin{pgfpicture}{0cm}{0cm}{119mm}{86mm}
+      \color{R.blue}
+      \pgfrect[fill]{\pgfpoint{0mm}{0mm}}{\pgfpoint{119mm}{89mm}}
+    \end{pgfpicture}
+  \end{textblock}
+
+  \begin{textblock}{29.2}(7.5, 8.45)
+    \mylogo{11.3mm}{29.1mm}
+  \end{textblock}
+
+  \begin{textblock}{66}(36, 32)
+    \begin{minipage}[b][29mm][b]{66mm}
+      \noindent
+      \raggedright{\usebeamerfont{section title}\usebeamercolor[fg]{section title}\insertsection}
+    \end{minipage}
+  \end{textblock}
+
+  \begin{textblock}{78}(36, 63)
+    {\usebeamerfont{subsection title}\usebeamercolor[fg]{subsection title}\insertsubsection}
+  \end{textblock}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\defbeamertemplate*{footline}{corpident theme}
+{%
+  \leavevmode%
+  \hbox{%
+  	\begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=1ex,center]{title in head/foot}%
+    	\ifbeamertemplateempty{firstpage}{}{
+      	\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}}
+	  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\setbeamertemplate{frametitle}{
+  \vspace{3mm}\raggedright {\usebeamerfont{frame title}\usebeamercolor[fg]{frame title}\insertframetitle}
+  
+  {\small \insertframesubtitle}
+  
+}
+\mode
+<all>
