@@ -1,0 +1,81 @@
+% de presentatie
+\documentclass[$if(fontsize)$$fontsize$$else$10pt$endif$, $if(handout)$handout,$endif$ xetex]{beamer}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+\usepackage{upquote}
+
+\usetheme{cislides}
+\usepackage{booktabs}
+\usepackage{longtable}
+$for(usepackage)$
+\usepackage{$usepackage$}
+$endfor$
+
+%kies de taal de presentatie. Wordt doorgeven aan het babel package. dutch geeft nederlandstalige logo's. Andere talen krijgen een engelstalig logo
+$if(lang)$
+\lang{$lang$}
+$endif$
+$if(cover)$
+\cover{$cover$}
+$endif$
+$if(coveroffset)$
+\coveroffset{$coveroffset$}
+$endif$
+%title verschijnt op de eerste slide. subject verschijnt enkel in de
+% eigenschappen van de pdf
+\title{$title$}
+
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+
+\author{$author$}
+
+$if(institute)$
+\institute{$institute$}
+$endif$
+
+$if(location)$
+\date{$location$}
+$else$
+\date{}
+$endif$
+
+\AtBeginSection[]
+{
+  \begin{frame}[plain]
+    \sectionpage
+  \end{frame}
+}
+\AtBeginSubsection[]
+{
+  \begin{frame}[plain]
+    \subsectionpage
+  \end{frame}
+}
+
+\begin{document}
+
+\setbeamertemplate{firstpage}{}
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\setbeamertemplate{firstpage}{no}
+\begin{frame}
+$if(overzicht)$
+  \frametitle{$overzicht$}
+$else$
+  \frametitle{Overzicht}
+$endif$
+	\tableofcontents
+\end{frame}
+
+$body$
+
+\frametitle{References}
+
+\end{document}

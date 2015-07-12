@@ -2,6 +2,7 @@
 
 export(ci_report_html)
 export(ci_report_pdf)
+export(ci_slides_pdf)
 export(column_start)
 export(column_width)
 importFrom(assertthat,is.count)
@@ -9,4 +10,5 @@ importFrom(assertthat,is.number)
 importFrom(rmarkdown,knitr_options)
 importFrom(rmarkdown,output_format)
 importFrom(rmarkdown,pandoc_options)
+importFrom(rmarkdown,pandoc_path_arg)
 importFrom(rmarkdown,pandoc_variable_arg)
